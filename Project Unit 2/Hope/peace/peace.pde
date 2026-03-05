@@ -10,7 +10,7 @@ int x;
 int y;
 float t;
 int vehicleX;
-int cloudX;
+int cloudX1, cloudX2;
 float angle, Vangle;
 
 void setup(){
@@ -19,7 +19,8 @@ void setup(){
   y=0;
   t=0;
   vehicleX=600;
-  cloudX=0;
+  cloudX1=0;
+  cloudX2=0;
   angle=0;
   Vangle=0.1;
 }
@@ -29,12 +30,38 @@ void draw(){
   background(0, 191, 255);
   noStroke();
   fill(255, 255, 0);
+  circle(450, 30, 50);
   fill(0, 128, 0);
   rect(0, 450, 600, 150);
   fill(169);
   rect(0, 400, 600, 50);
   fill(211);
   rect(0, 300, 600, 100);
+  stroke(2);
+  fill(238, 232, 170);
+  rect(25, 125, 150, 250);
+  
+  fill(70, 130, 180);
+  rect(225, 175, 150, 200);
+  line(225, 225, 375, 225);
+  line(225, 275, 375, 275);
+  line(225, 325, 375, 325);
+  line(275, 175, 275, 375);
+  line(325, 175, 325, 375);
+  line(300, 175, 300, 100);
+  fill(255);
+  rect(300, 100, 60, 40);
+  circle(330, 120, 30);
+  line(330, 105, 330, 135);
+  line(330, 120, 320, 130);
+  line(330, 120, 340, 130);
+  fill(210, 105, 30);
+  rect(425, 125, 150, 250);
+  fill(139, 69, 19);
+  rect(475, 325, 50, 50);
+  fill(30, 144, 255);
+  rect(475, 225, 50, 50);
+  rect(475, 150, 50, 50);
   stroke(3);
   fill(0);
   line(50, 500, 50, 550);
@@ -55,10 +82,15 @@ void draw(){
   if (vehicleX < -600) {
     vehicleX = 700;
   }
-  cloud(cloudX, 50);
-  cloudX=cloudX+2;
-  if(cloudX>750){
-    cloudX=-150;
+  cloud(cloudX1, 50);
+  cloud(cloudX2, 75);
+  cloudX1=cloudX1+2;
+  cloudX2=cloudX2+3;
+  if(cloudX1>750){
+    cloudX1=-150;
+  }
+  if(cloudX2>750){
+    cloudX2=-150;
   }
   ball(125, 500);
   angle=angle+Vangle;
