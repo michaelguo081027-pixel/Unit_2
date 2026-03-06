@@ -8,9 +8,10 @@ Feb 26
 
 int x;
 int y;
-float t;
+int t;
 int vehicleX;
 int cloudX1, cloudX2;
+float personX;
 float angle, Vangle;
 
 void setup(){
@@ -77,11 +78,7 @@ void draw(){
   line(200, 550, 195, 565);
   line(200, 550, 210, 570);
   //moving part
-  vehicle(vehicleX, 410);
-  vehicleX = vehicleX-4;
-  if (vehicleX < -600) {
-    vehicleX = 700;
-  }
+  //cloud
   cloud(cloudX1, 50);
   cloud(cloudX2, 75);
   cloudX1=cloudX1+2;
@@ -92,6 +89,7 @@ void draw(){
   if(cloudX2>750){
     cloudX2=-150;
   }
+  //ball
   ball(125, 500);
   angle=angle+Vangle;
   if(angle>3.3){
@@ -100,11 +98,68 @@ void draw(){
   if(angle<-0.3){
     Vangle=0.1;
   }
+  //person
+  person(personX, 350);
+  personX=personX+0.25;
+  if(personX>650){
+    personX=-50;
+  }
+  //car
+  vehicle(vehicleX, 410);
+  vehicleX = vehicleX-4;
+  if (vehicleX < -600) {
+    vehicleX = 700;
+  }
+}
+
+void person(float x, int y){
+  t=t+1;
+  if(t<20){
+    drawPersonR(x, y);
+  }
+  if(t>=20){
+    drawPersonL(x, y);
+  }
+  if(t==40){
+    t=0;
+  }
+}
+
+void drawPersonR(float x, int y){
+  translate(x, y);
+  strokeWeight(3);
+  fill(0);
+  line(0, -20, 0, 20);
+  circle(0, -20, 30);
+  line(-10, 10, 0, 0);
+  line(-10, 10, 0, 15);
+  line(10, 10, 0, 0);
+  line(10, 10, 20, 0);
+  line(0, 20, 20, 30);
+  line(20, 30, 20, 40);
+  line(0, 20, -20, 40);
+}
+  
+void drawPersonL(float x, int y){
+  translate(x, y);
+  strokeWeight(3);
+  fill(0);
+  line(0, -20, 0, 20);
+  circle(0, -20, 30);
+  line(-20, 5, 0, 0);
+  line(-20, 5, -20, 10);
+  line(0, 0, 5, 10);
+  line(5, 10, 10, 5);
+  line(0, 20, 20, 30);
+  line(20, 30, 0, 40);
+  line(0, 20, -20, 40);
 }
 
 void vehicle(int x, int y) {
   pushMatrix();
   translate(x, y);
+  stroke(0);
+  strokeWeight(2);
   fill(0);
   circle(-50, 10, 30);
   circle(50, 10, 30);
