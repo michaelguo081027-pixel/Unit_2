@@ -30,13 +30,18 @@ void draw(){
   //background part
   background(0, 191, 255);
   noStroke();
-  fill(255, 255, 0);
+  fill(255, 165, 0);
   circle(450, 30, 50);
+  fill(238, 232, 170);
+  rect(0, 525, 600, 75);
   fill(0, 128, 0);
-  rect(0, 450, 600, 150);
-  fill(169);
+  rect(0, 450, 600, 75);
+  fill(100);
   rect(0, 400, 600, 50);
-  fill(211);
+  fill(255);
+  triangle(50, 425, 75, 410, 75, 440);
+  rect(75, 417.5, 100, 15);
+  fill(200);
   rect(0, 300, 600, 100);
   stroke(2);
   fill(238, 232, 170);
@@ -112,9 +117,9 @@ void draw(){
   }
   //car
   vehicle(vehicleX, 410);
-  vehicleX = vehicleX-4;
-  if (vehicleX < -600) {
-    vehicleX = 700;
+  vehicleX = vehicleX-5;
+  if (vehicleX < -1000) {
+    vehicleX = 1000;
   }
 }
 
@@ -132,6 +137,7 @@ void person(float x, int y){
 }
 
 void drawPersonR(float x, int y){
+  pushMatrix();
   translate(x, y);
   strokeWeight(3);
   fill(0);
@@ -144,9 +150,11 @@ void drawPersonR(float x, int y){
   line(0, 20, 20, 30);
   line(20, 30, 20, 40);
   line(0, 20, -20, 40);
+  popMatrix();
 }
   
 void drawPersonL(float x, int y){
+  pushMatrix();
   translate(x, y);
   strokeWeight(3);
   fill(0);
@@ -159,6 +167,7 @@ void drawPersonL(float x, int y){
   line(0, 20, 20, 30);
   line(20, 30, 0, 40);
   line(0, 20, -20, 40);
+  popMatrix();
 }
 
 void vehicle(int x, int y) {
