@@ -8,7 +8,7 @@ Feb 26
 
 int x;
 int y;
-int t;
+float t;
 int vehicleX;
 int cloudX1, cloudX2;
 float personX;
@@ -28,7 +28,7 @@ void setup(){
 
 void draw(){
   //background part
-  background(0, 191, 255);
+  background(135, 206, 250);
   noStroke();
   fill(255, 165, 0);
   circle(450, 30, 50);
@@ -41,12 +41,16 @@ void draw(){
   fill(255);
   triangle(50, 425, 75, 410, 75, 440);
   rect(75, 417.5, 100, 15);
+  stroke(255);
+  line(0, 405, 600, 405);
+  line(0, 445, 600, 445);
+  noStroke();
   fill(200);
   rect(0, 300, 600, 100);
-  stroke(2);
+  stroke(0);
   fill(238, 232, 170);
   rect(25, 125, 150, 250);
-  fill(65, 105, 225);
+  fill(0, 191, 255);
   rect(35, 150, 50, 50);
   rect(115, 150, 50, 50);
   rect(35, 225, 50, 50);
@@ -71,7 +75,7 @@ void draw(){
   rect(425, 125, 150, 250);
   fill(139, 69, 19);
   rect(475, 300, 50, 75);
-  fill(30, 144, 255);
+  fill(0, 191, 255);
   rect(475, 225, 50, 50);
   rect(475, 150, 50, 50);
   stroke(3);
@@ -124,14 +128,14 @@ void draw(){
 }
 
 void person(float x, int y){
-  t=t+1;
-  if(t<20){
+  t=t+0.5;
+  if(t<15){
     drawPersonR(x, y);
   }
-  if(t>=20){
+  if(t>=15){
     drawPersonL(x, y);
   }
-  if(t==40){
+  if(t==30){
     t=0;
   }
 }
@@ -221,7 +225,7 @@ void ball(int x, int y){
   stroke(2);
   fill(255, 0, 0);
   circle(-30, 0, 50);
-  fill(0, 255, 0);
+  fill(255, 255, 255);
   ellipse(-30, 0, 30, 50);
   fill(0, 0, 255);
   ellipse(-30, 0, 10, 50);
