@@ -3,6 +3,7 @@ Michael Guo
 2-1
 Feb 26
 
+Hope there will be no war and the world is always peace.
 
 */
 
